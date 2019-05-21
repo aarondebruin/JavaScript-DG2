@@ -10,15 +10,50 @@
     var a = 3;
     var b = 4;
     var c = 5;
-    var totaal = a + b;
+    var totaal = a + b + c;
     document.getElementById("optellen").innerHTML =
+        "Optellen<br>" +
         "Het totaal = " + totaal;
 </script>
+<p id="aftellen"></p>
 <script>
     var a = 3;
     var b = 4;
     var c = 5;
-    document.write(a + c - b);
+    var totaal = a + c - b;
+    document.getElementById("aftellen").innerHTML =
+        "Aftellen<br>" +
+        "Het totaal = " + totaal;
+</script>
+<p id="restgetal"></p>
+<script>
+    var a = 3;
+    var b = 4;
+    var c = 5;
+    var totaal = c % a;
+    document.getElementById("restgetal").innerHTML =
+        "Restgetal<br>" +
+        "Het totaal = " + totaal;
+</script>
+<p id="vermenigvuldigen"></p>
+<script>
+    var a = 3;
+    var b = 4;
+    var c = 5;
+    var totaal = (c - a) * b;
+    document.getElementById("vermenigvuldigen").innerHTML =
+        "Vermenigvuldigen<br>" +
+        "Het totaal = " + totaal;
+</script>
+<p id="delen"></p>
+<script>
+    var a = 3;
+    var b = 4;
+    var c = 5;
+    var totaal = (b + c) / a;
+    document.getElementById("delen").innerHTML =
+        "Delen<br>" +
+        "Het totaal = " + totaal;
 </script>
 </body>
 </html>
