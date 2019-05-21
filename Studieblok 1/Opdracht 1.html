@@ -3,13 +3,32 @@
     <title>Javascript 2 - Opdracht 1</title>
 </head>
 <body>
+<p>inner.HTML</p>
 <p id="naam"></p>
-
 <script>
     var achternaam = "Brokmann ";
     var voornaam = "Robin";
     document.getElementById("naam").innerHTML =
         "de naam is: " + voornaam + " " + achternaam;
+</script>
+<p>window.alert</p>
+<p>Druk op de knop om de naam weer te geven via een alert box</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+    var achternaam = "Brokmann ";
+    var voornaam = "Robin";
+    function myFunction() {
+        alert("de naam is: " + voornaam + " " + achternaam);
+    }
+</script>
+
+<p>document.write</p>
+<script>
+    var achternaam = "Brokmann ";
+    var voornaam = "Robin";
+    document.write("de naam is: " + voornaam + " " + achternaam);
 </script>
 
 </body>
