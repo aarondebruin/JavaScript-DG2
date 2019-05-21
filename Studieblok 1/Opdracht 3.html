@@ -4,12 +4,15 @@
     <title>Javascript 2 - Opdracht 3</title>
 </head>
 <body>
+<p id="berekenen"></p>
 <script>
-    var cijfer1 = 6;
-    var cijfer2 = 3;
+var cijfer1 = 6;
+var cijfer2 = 3;
     function berekenen(cijfer1, cijfer2){
         return cijfer1 * cijfer2;
     }
+    document.getElementById("berekenen").innerHTML = cijfer1 + " x " + cijfer2 + " = " + berekenen(cijfer1, cijfer2);
+
 </script>
 </body>
 </html>
