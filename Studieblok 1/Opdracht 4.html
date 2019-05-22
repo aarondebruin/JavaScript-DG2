@@ -2,13 +2,52 @@
 <html>
 <body>
 
-<h2>Opdracht 4</h2>
-<script>
-    function rekenen (cijfer1,cijfer2,actie) {
-        if (actie) {
 
+<h2>Opdracht 4</h2>
+<div id="rekenen"></div>
+<script>
+    var cijfer1 = 8;
+    var cijfer2 = 5;
+    var actie = "*";
+
+    document.getElementById("rekenen").innerHTML = rekenenIf(cijfer1, cijfer2,actie) + "<br>";
+
+
+    function rekenenIf (cijfer1,cijfer2,actie) {
+        if (actie === "+")
+        return cijfer1 + cijfer2;
+        if (actie === "-")
+        return cijfer1 - cijfer2;
+         if (actie === "*")
+            return cijfer1 * cijfer2;
+         if (actie === "/")
+             return cijfer1 / cijfer2;
         }
-    }
+        </script>
+
+<div id="rekenen"></div>
+<script>
+    var cijfer1 = 8;
+    var cijfer2 = 5;
+    var actie = "*";
+
+    document.getElementById("rekenen").innerHTML += rekenenSwitch(cijfer1, cijfer2,actie);
+
+        function rekenenSwitch(cijfer1,cijfer2,actie) {
+         switch (actie) {
+             case "+" :
+                 return cijfer1 + cijfer2;
+             case "-" :
+                 return cijfer1 - cijfer2;
+             case "*" :
+                 return cijfer1 * cijfer2;
+             case "/" :
+                 return cijfer1 / cijfer2;
+
+         }
+        }
+
+
 </script>
 
 </body>
