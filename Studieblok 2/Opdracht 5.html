@@ -10,9 +10,12 @@
 <div id=namen><b>for loop</b><br></div>
 <div id=namen2><b>while loop</b><br></div>
 <div id=namen3><b>Javascript</b><br></div>
+<div id=namen4><b>Lengte van de array</b><br></div>
+<div id=namen5><b>Gescheiden met #</b><br></div>
 <script>
     var namen = ["Zoe", "Bram", "Clarissa", "Isa", "Gerrie"];
-
+    namen.push("Robin");
+    namen.sort();
     document.getElementById("namen").innerHTML += maakForLoop();
 
     document.getElementById("namen2").innerHTML += maakWhileLoop();
@@ -20,7 +23,11 @@
     // Javascript manier
     document.getElementById("namen3").innerHTML += namen.toString();
 
+    // lengte van een array
+    document.getElementById("namen4").innerHTML += "De lengte van de array is:" + namen.length;
 
+    // Array geschijden met #
+    document.getElementById("namen5").innerHTML += namen.join("#");
     // functie voor forloop
     function maakForLoop() {
         var text = "";
@@ -40,6 +47,7 @@
         }
         return text;
     }
+
 
 </script>
 
