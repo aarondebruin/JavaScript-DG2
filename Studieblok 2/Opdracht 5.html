@@ -2,42 +2,44 @@
 <head>
     <title>Javascript 2 - Opdracht 5</title>
 </head>
+<style>
+    b {font-size: 25px;}
+    div {margin-bottom: 5px;}
+</style>
 <body>
-<!--for loop-->
-
-<h1> for loop </h1>
-<div id = namen></div>
+<div id=namen><b>for loop</b><br></div>
+<div id=namen2><b>while loop</b><br></div>
+<div id=namen3><b>Javascript</b><br></div>
 <script>
-    var namen = ["Zoe, Bram, Clarissa, Isa, Gerrie"];
-    var text = "";
-    var i;
-    for (i = 0; i < namen.length; i++) {
-        text += namen[i] + "<br>";
+    var namen = ["Zoe", "Bram", "Clarissa", "Isa", "Gerrie"];
+
+    document.getElementById("namen").innerHTML += maakForLoop();
+
+    document.getElementById("namen2").innerHTML += maakWhileLoop();
+
+    // Javascript manier
+    document.getElementById("namen3").innerHTML += namen.toString();
+
+
+    // functie voor forloop
+    function maakForLoop() {
+        var text = "";
+        for (var i = 0; i < namen.length; i++) {
+            text += namen[i] + " ";
+        }
+        return text;
     }
-    document.getElementById("namen").innerHTML = text;
-</script>
 
-<!--while loop-->
-
-<h1> while loop </h1>
-<div id = namen2></div>
-<script>
-    var text = "";
-    var i = 0;
-    while (namen[i]) {
-        text += namen[i] + "<br>";
-        i++;
+    // functie While loop
+    function maakWhileLoop() {
+        var i = 0;
+        var text = "";
+        while (i < namen.length) {
+            text += namen[i] + " ";
+            i++;
+        }
+        return text;
     }
-    document.getElementById("namen2").innerHTML = text;
-</script>
-
-<!--Javascript manier-->
-
-<h1> javascript </h1>
-<div id = namen3></div>
-<script>
-
-    document.getElementById("namen3").innerHTML = namen;
 
 </script>
 
