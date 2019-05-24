@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript 2 - Opdracht 8</title>
+  </head>
+  <body>
+    <div id="namen" onclick="names()">Naam</div>
+    	<script>
+    		var persons = [];
+    		function names()
+    		{
+    			var person = prompt("Voeg je naam toe", "");
+    			{
+    				persons[persons.length] = person;
+    				document.getElementById("namen").innerHTML = persons;
+    			}
+    		}
+    	</script>
+
+  </body>
+</html>
