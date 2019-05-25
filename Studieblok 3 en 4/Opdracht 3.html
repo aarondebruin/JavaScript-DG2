@@ -1,0 +1,43 @@
+
+<html>
+<head>
+    <title>Javascript 2 - Opdracht 3</title>
+</head>
+<body>
+<style>
+    div {
+        background-color: blue;
+        font-size: 30px;
+    }
+</style>
+<div id= helloworld onmouseover="mouseOver()" onmouseout="mouseOut()" >Hello World</div>
+<script>
+    function mouseOver() {
+        document.getElementById("helloworld").style.fontFamily = "cursive";
+    }
+
+    function mouseOut() {
+        document.getElementById("helloworld").style.fontFamily = "roman";
+    }
+
+    function vertalen(){
+        if (this.innerHTML == "Hello World"){
+            this.innerHTML = "Hallo wereld";
+    }
+        else {
+            this.innerHTML = "Hello World";
+        }
+
+    }
+    function maakEvents() {
+
+        document.getElementById("helloworld").onclick = vertalen;
+
+    }
+    window.onload = maakEvents;
+
+
+</script>
+
+</body>
+</html>
