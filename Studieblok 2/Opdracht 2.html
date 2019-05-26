@@ -7,10 +7,18 @@
 <body>
 <div id = "string"></div>
 <script>
-var zin = "applicatie ontwikkelaar";
-var zin1 = zin.substr("ontwikkelaar");
+var zin1 = ("applicatie programmeur");
+var zin2 = zin1.indexOf("programmeur");
+var zin3 = zin1.includes("wikkelaar");
+var zin4 = zin1.slice(14, 17);
+var upp = zin1.toUpperCase();
+
 document.getElementById("string").innerHTML =
-    "De zin is: " +  zin + "<br><br>" + zin1
+    "De zin is: " + zin1 + "<br>"+ "De lengte van de zin is: " + zin1.length
+    + "<br>" + "Het woord programmeur begint bij letter:" + zin2 + "<br>" +"Zit het woord wikkelaar in de zin? " + zin3
+    + "<br>" + zin4 + "<br>" + upp;
+
+
 </script>
 </body>
 </html>
