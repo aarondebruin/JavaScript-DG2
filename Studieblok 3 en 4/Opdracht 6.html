@@ -1,0 +1,54 @@
+<html>
+<head>
+
+    <title>Javascript 2 - Opdracht 6</title>
+</head>
+<body>
+<input id="tijd" type="text">
+<button onclick="setTimer()">Starten</button><br><br>
+Timer: <div style="font-weight: bold; display: inline" id="uitvoer">0</div><br><br>
+<div style="color: red" id="error"></div>
+
+<script>
+    var timerRunning = false;
+    function setTimer() {
+        var element = document.getElementById("uitvoer");
+        var seconds = Number(document.getElementById("tijd").value);
+
+        if(timerRunning){
+            document.getElementById("error").innerHTML= "Er is al een timer actief!";
+            return;
+        }
+        if(isNaN(seconds) || seconds === 0){
+            element.innerHTML= "Invalid Number";
+        } else {
+            showTimer(seconds, element);
+            setTimeout(function(){
+                alert("Timer afgelopen!");
+                resetTimer();
+            }, seconds * 1000);
+            timerRunning = true;
+        }
+    }
+
+    function resetTimer() {
+        timerRunning = false;
+        document.getElementById("error").innerHTML= "";
+    }
+
+    function showTimer(seconds, element) {
+        element.innerHTML = seconds.toString();
+        seconds--;
+        var x = setInterval(function () {
+            if(seconds === 0){
+                element.innerHTML= 0;
+                clearInterval(x);
+            } else {
+                element.innerHTML = seconds.toString();
+            }
+            seconds--;
+        }, 1000)
+    }
+</script>
+</body>
+</html>
