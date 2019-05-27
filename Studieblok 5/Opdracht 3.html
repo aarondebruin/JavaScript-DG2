@@ -1,0 +1,45 @@
+<html>
+<body>
+<div id="cijfer1"><b>Cijfer 1: </b></div>
+<div id="cijfer2"><b>Cijfer 2: </b></div>
+<div id="cijfer3"><b>Cijfer 3: </b></div>
+<div id="cijfer4"><b>Cijfer 4: </b></div>
+<div id="cijfer5"><b>Cijfer 5: </b></div>
+<script>
+    var cijfer1 = "0023";
+    var cijfer2 = "0242";
+    var cijfer3 = "2302";
+    var cijfer4 = "4002";
+    var cijfer5 = "0240";
+
+    document.getElementById("cijfer1").innerHTML += checkcijfer1(cijfer1) ? "Klopt" : "Klopt niet";
+    document.getElementById("cijfer2").innerHTML += checkcijfer2(cijfer2) ? "Klopt" : "Klopt niet";
+    document.getElementById("cijfer3").innerHTML += checkcijfer3(cijfer3) ? "Klopt" : "Klopt niet";
+    document.getElementById("cijfer4").innerHTML += checkcijfer4(cijfer4) ? "Klopt" : "Klopt niet";
+    document.getElementById("cijfer5").innerHTML += checkcijfer5(cijfer5) ? "Klopt" : "Klopt niet";
+
+
+    function checkcijfer1(cijfer1) {
+        var cijfers1 = "[0-9]{4}";
+        return cijfer1.match(cijfers1);
+    }
+    function checkcijfer2(cijfer2) {
+        var cijfers2 = "[0-9]{4}";
+        return cijfer2.match(cijfers2);
+    }
+    function checkcijfer3(cijfer3) {
+        var cijfers3 = "[0-9]{4}";
+        return cijfer3.match(cijfers3);
+    }
+    function checkcijfer4(cijfer4) {
+        var cijfers4 = "[0-9]{4}";
+        return cijfer4.match(cijfers4);
+    }
+    function checkcijfer5(cijfer5) {
+        var cijfers5 = "[0-9]{4}";
+        return cijfer5.match(cijfers5);
+    }
+
+</script>
+</body>
+</html>
