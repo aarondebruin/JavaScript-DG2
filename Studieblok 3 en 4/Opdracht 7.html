@@ -1,0 +1,26 @@
+<html>
+<body>
+<button id="Button" onclick="Details()" ondblclick="reload()">Geef details weer</button><br>
+Naam: Bas Boissevain
+<div id="details"></div>
+
+<script>
+    var geboortedatum = "Geboortedatum: 6 april 2000";
+    var woonplaats = "Woonplaats: Erica";
+
+    function Details() {
+        document.getElementById("Button").childNodes[0].nodeValue = "Verberg details";
+        document.getElementById("details").innerHTML = geboortedatum + "<br>" + woonplaats;
+    }
+    function reload() {
+        window.location.reload()
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
