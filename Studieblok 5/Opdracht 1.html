@@ -1,0 +1,51 @@
+<html>
+<body>
+<div id="postcode"><b>Nederlandse Postcode: </b></div>
+<div id="telefoonnummer"><b>Nederlandse telefoonnummer: </b></div>
+<div id="email"><b>Email-Adres: </b></div>
+<div id="adres"><b>Adres: </b></div>
+<div id="manvrouw"><b>Man/vrouw: </b></div>
+
+
+<script>
+    var postcode = "7878 HB";
+    var telefoonnummer = "0618493026";
+    var email = "jenaam@home.nl";
+    var adres = "straatnaam 2";
+    var manofvrouw = "man";
+
+    document.getElementById("postcode").innerHTML += checkPostcode(postcode) ? "Geldig" : "Niet geldig";
+    document.getElementById("telefoonnummer").innerHTML += checkTelefoonNummer(telefoonnummer) ? "Geldig" : "Niet geldig";
+    document.getElementById("email").innerHTML += checkEmailAdres(email) ? "Geldig" : "Niet geldig";
+    document.getElementById("adres").innerHTML += checkadres(adres) ? "Geldig" : "Niet geldig";
+    document.getElementById("manvrouw").innerHTML += checkgender(manofvrouw) ? "Geldig" : "Niet geldig";
+
+    function checkPostcode(postcode) {
+        var nlpostcode = "[1-9][0-9]{3}\\s?[a-zA-Z]{2}";
+        return postcode.match(nlpostcode);
+    }
+
+    function checkTelefoonNummer(nummer) {
+        var telnummer = "^[0-9]{10}";
+        return nummer.match(telnummer);
+    }
+
+    function checkEmailAdres(emailadres) {
+        var email = "[a-z0-9_\.-]+@([a-z0-9]+([\-]+[a-z0-9]+)*\.)+[a-z]{2,7}";
+        return emailadres.match(email);
+    }
+
+    function checkadres(adresnaam) {
+        var adres ="^\\D*\\d{1,3}[a-zA-Z]{0,1}$";
+        return adresnaam.match(adres);
+
+    }
+
+    function checkgender(manofvrouw) {
+        var mannvrouw = "([man|vrouw])";
+        return manofvrouw.match(mannvrouw);
+    }
+
+</script>
+</body>
+</html>
