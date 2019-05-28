@@ -1,18 +1,79 @@
 <html>
 <head>
-
     <title>Javascript Inleveropdracht 1</title>
 </head>
-<body>
 <style>
+    div {
+        width: 70px;
+        height: 70px;
+        text-align: center;
+    }
 
+    table td {
+        border: 1px solid black;
+        font-size: 50px;
+    }
 
 </style>
-
+<body>
+<span id="huidigeSpeler">Huidige speler: 1</span><br><br>
+<table>
+    <tr>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+        <td>
+            <div onclick="doeBeurt(this)"></div>
+        </td>
+    </tr>
+</table>
+<button onclick="reset()">resetten</button>
 
 <script>
+    var huidigeSpeler = 1;
 
+    function doeBeurt(element) {
+        console.log("test");
+        if(huidigeSpeler === 1){
+            element.innerHTML = "X";
+            huidigeSpeler = 2;
+        } else {
+            element.innerHTML = "O";
+            huidigeSpeler = 1;
+        }
+        document.getElementById("huidigeSpeler").innerHTML = "Huidige speler: " + huidigeSpeler;
+        element.onclick = null;
 
+    }
+
+    function reset(){
+        window.location.reload();
+    }
 </script>
 
 </body>
