@@ -1,0 +1,49 @@
+<html>
+<style>
+    input {
+        display: block;
+    }
+</style>
+<body>
+<label><b>Nederlands postcode check: </b></label><input type="text" id ="Postcodeinvoer"> <div id = "postcodeuitvoer">Voer een postcode in!</div><br>
+<label><b>Nederlands telefoonnummer check: </b></label><input type="text" id ="Nummerinvoer"> <div id = "nummeruitvoer">Voer een telefoonnummer in!</div><br>
+<label><b>Email check: </b></label><input type="text" id ="Emailinvoer"> <div id = "emailuitvoer">Voer een email in!</div><br>
+<label><b>Adres check: </b></label><input type="text" id ="Adresinvoer"> <div id = "adresuitvoer">Voer een adres in!</div><br>
+<label><b>Man of Vrouw check: </b></label><input type="text" id ="Genderinvoer"> <div id = "genderuitvoer">voer een geslacht in!</div>
+
+<script>
+
+function checkPostcode() {
+    var pattern = /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/;
+    document.getElementById("postcodeuitvoer").innerHTML = pattern.test(this.value).toString();
+}
+
+function checkTelefoonNummer() {
+    var pattern = /^[0-9]{10}$/;
+    document.getElementById("nummeruitvoer").innerHTML = pattern.test(this.value).toString();
+}
+
+function checkEmailAdres() {
+    var pattern = /^[a-z0-9_.-]+@([a-z0-9]+([-]+[a-z0-9]+)*.)+[a-z]{2,7}$/;
+    document.getElementById("emailuitvoer").innerHTML = pattern.test(this.value).toString();
+}
+
+function checkadres() {
+    var pattern = /^\D*\d{1,3}[a-zA-Z]{0,1}$/;
+    document.getElementById("adresuitvoer").innerHTML = pattern.test(this.value).toString();
+
+}
+
+function checkgender(manofvrouw) {
+    var pattern = /^([man|vrouw])$/;
+    document.getElementById("genderuitvoer").innerHTML = pattern.test(this.value).toString();
+}
+
+document.getElementById("Postcodeinvoer").addEventListener("keyup", checkPostcode);
+document.getElementById("Nummerinvoer").addEventListener("keyup", checkTelefoonNummer);
+document.getElementById("Emailinvoer").addEventListener("keyup", checkEmailAdres);
+document.getElementById("Adresinvoer").addEventListener("keyup", checkadres);
+document.getElementById("Genderinvoer").addEventListener("keyup", checkgender);
+</script>
+</body>
+</html>
