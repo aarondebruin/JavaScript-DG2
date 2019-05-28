@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Studieblok 6 Opdracht 1</title>
+</head>
+<script>
+
+$(document).ready(function(){
+				//maakt alles ontzichtbaar
+				$("#hide").click(function(){
+					$("li").hide();
+				});
+				//maakt alles zichtbaar
+				$("#show").click(function(){
+					$("li").show();
+				});
+				//maakt een paar ontzichtbaar
+				$("#hide2").click(function(){
+					$(".test").hide();
+				});
+				//maakt alle tekst blauw
+				$("#blue").click(function(){
+					$("li").css("color", "blue");
+				});
+        //maakt alle tekst zwart
+				$("#normal").click(function(){
+					$("li").css("color", "black");
+				});
+			});
+</script>
+</head>
+<body>
+
+<li class="test">Burgerschap</li>
+<li class="test">Ondernemend Gedrag</li>
+<li>Project</li>
+<li>Rekenen</li>
+
+<button id="hide">Onzichtbaar</button>
+<button id="show">Zichtbaar</button>
+<button id="hide2">Paar weg</button>
+<button id="blue">blauw</button>
+<button id="normal">zwart</button>
+
+</body>
+</html>
