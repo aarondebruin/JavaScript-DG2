@@ -6,8 +6,8 @@
 <style>
     div{
         border: 4px solid black;
-        width: 200px;
-        height: 200px;
+        width: 75px;
+        height: 25px;
     }
 </style>
 <body>
@@ -21,11 +21,12 @@
             $('#output').text($(this).text());
         });
     });
-    $(document).ready(function () {
-        $('button').hover(function () {
-            $('#output').text($(this).text());
-        });
+    $('#button1').mouseover(function () {
+        var random = 2 + Math.floor(Math.random() * 2);
+        console.log(random);
+        $('#button' + random).trigger("click");
     });
+
 
 </script>
 </body>
