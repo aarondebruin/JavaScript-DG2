@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Javascript Opdracht 4</title>
-    <script> src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <style>
   .box {
@@ -9,13 +9,16 @@
        height: 100px;
        border-radius: 5px;
       border: 1px solid black;
-    }
+      background-color: #fff;
+
+  }
     .row{
         display:inline-grid;
         grid-gap: 5px;
     }
 
 </style>
+<button id="random_kleur">Random kleuren</button>
 <body>
 <div class="row">
     <div class ="box"></div>
@@ -41,11 +44,46 @@
     <div class ="box"></div>
     <div class ="box"></div>
 </div>
-<button id="random_color">Random kleuren</button>
 
 
 <script>
+    $(document).ready(function(){
+        $('.box').click(function () {
+            resetColors($(this));
+        });
+        $("#random_kleur").click(function(){
+            $('.box').each(function () {
+                var random = Math.floor(Math.random() * 4 + 1);
+                $(this).css("background-color", getColor(random));
+            })
+        });
 
+
+        // reset de kleur waar op word geklikt.
+
+        function resetColors(e) {
+            e.each(function () {
+                var clickedColor = $(this).css("background-color");
+                $('.box').each(function () {
+                    if($(this).css("background-color") === clickedColor){
+                        $(this).css("background-color", "");
+                    }
+                })
+            });
+        }
+
+
+        // haalt de kleur op van een random gegenereerd nummer.
+
+        function getColor(randomNumber) {
+            switch (randomNumber) {
+                case 1: return "red";
+                case 2: return "green";
+                case 3: return "yellow";
+                case 4: return "pink";
+            }
+        }
+    });
 </script>
 </body>
 </html>
