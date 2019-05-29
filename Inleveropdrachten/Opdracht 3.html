@@ -26,26 +26,71 @@
        display: inline-block;
        
     }
+    #uitvoer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: space-between;
+        width: 400px;
+        height: 400px;
+    }
 </style>
-<label><b>Naam invoeren: </b></label><input id="invoer" type="text"><button>Toevoegen</button> <br><br>
+<label><b>Naam invoeren: </b></label><input id="invoer" type="text" ><button onclick="Teksttoevoegen()">Toevoegen</button> <br><br>
+<div id="uitvoer">
 <div id="div1"></div>
 <span>
-<button>>>>>>>></button><br><br>
-<button><<<<<<<</button>
+<button onclick="tekstnaarrechts()">>>>>>>></button><br><br>
+<button onclick="tekstnaarlinks()"><<<<<<<</button>
 </span>
 <div id="div2"></div>
+</div>
 <script>
+    var leftArray = [];
+    var rightArray = [];
 
-    $(document).ready(function(){
-        var naam = Number(document.getElementById("invoer").value);
-        $("button").click(function(){
-            $("div1").text(naam);
+    function bijwerkDiv() {
+        var leftDiv = "";
+        var rightDiv = "";
+        leftArray.forEach(function (x) {
+            leftDiv += x;
+            leftDiv += '<br>';
         });
-    });
+        rightArray.forEach(function (x) {
+            rightDiv += x;
+            rightDiv += '<br>';
+        });
+        document.getElementById("div1").innerHTML = leftDiv;
+        document.getElementById("div2").innerHTML = rightDiv;
+    }
+    function Teksttoevoegen() {
+        var text = document.getElementById("invoer").value;
+        if(text == null){
+            return;
 
+        }
+        leftArray.push(text);
+        document.getElementById("invoer").value = "";
+        bijwerkDiv()
 
+    }
+    function tekstnaarrechts() {
+        var text = leftArray[0];
+        leftArray.shift();
+        if(text == null){
+            return;
+        }
+        rightArray.push(text);
+        bijwerkDiv();
+    }
+    function tekstnaarlinks() {
+        var text = rightArray[0];
+        rightArray.shift();
+        if(text == null){
+            return;
+        }
+        leftArray.push(text);
+        bijwerkDiv();
+    }
 </script>
-
-
 </body>
 </html>
