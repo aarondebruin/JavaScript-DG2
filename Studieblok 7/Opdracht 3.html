@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>Javascript Opdracht 3</title>
+</head>
+<style>
+    .focus {
+        border: 4px solid greenyellow;
+    }
+</style>
+<body>
+<form >
+<input type="text"><br>
+<input type="text"><br>
+<input type="text">
+</form>
+<script>
+    $(document).ready(function () {
+        $('input[type="text"]').focus(function () {
+            $(this).addClass("focus");
+        });
+
+        $('input[type="text"]').blur(function () {
+            $(this).removeClass("focus");
+        });
+    });
+
+</script>
+
+
+</body>
+</html>
