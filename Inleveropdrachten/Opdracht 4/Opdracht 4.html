@@ -1,18 +1,21 @@
 <html>
 <body>
 <button>Nederlands</button><button>Engels</button>
-<div><b>Aanhef:</b><input type="radio" name="gender" onclick="kleur()" value="heer"> Heer</div>
- <div id="kleur2"><input type="radio" name="gender" onclick="kleur()" value="mevrouw"> Mevrouw<br></div>
+<form>
+<b>Aanhef:</b><input id="heer" type="radio" name="gender" onclick="kleur()" value="heer"> Heer
+<input id="mevrouw" type="radio" name="gender" onclick="kleur2()" value="mevrouw"> Mevrouw<br>
+    <input type="text">
+</form>
 
-    <script>
-function kleur(x) {
-    if (x) {
-
+<script>
+    function kleur() {
         document.body.style.backgroundColor = "darkgreen";
-
+        document.input.style.backgroundColor = "lightgreen";
     }
-document.body.style.backgroundColor ="darkgreen";
-}
+    function kleur2() {
+        document.body.style.backgroundColor = "purple";
+    }
+
 </script>
 </body>
 </html>
