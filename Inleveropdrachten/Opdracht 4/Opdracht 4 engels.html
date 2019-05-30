@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html>
 <body>
+<style>
+    input {
+        display: block;
+    }
+</style>
+<form action="Opdracht%204.html">
+    <button hidden >English</button>
+    <button type="submit">Dutch</button>
+</form>
 
+<form>
+    <b>Aanhef:</b><input id="sir" type="radio" name="gender" onclick="kleur()" value="Sir"> Sir<br>
+    <input id="Madam" type="radio" name="gender" onclick="kleur2()" value="Madam"> Madam<br><br>
+    <b>Name:</b><input type="text"><br><br>
+    <b>Adress:</b><input type="text"><br><br>
+    <b>Residence:</b><input type="text"><br><br>
+    <b>Postcode:</b><input type="text"><br><br>
+    <b>Date of birth:</b><input type="text"><br><br>
+    <b>Nationality:</b><input type="text"><br><br>
+    <b>employment:</b><input type="text"><br><br>
+</form>
+
+<script>
+    function kleur() {
+        document.body.style.backgroundColor = "darkgreen";
+    }
+    function kleur2() {
+        document.body.style.backgroundColor = "purple";
+    }
+</script>
 </body>
 </html>

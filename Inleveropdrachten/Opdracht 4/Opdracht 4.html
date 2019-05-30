@@ -1,18 +1,33 @@
 <html>
 <body>
-<button>Nederlands</button><button>Engels</button>
-<div><b>Aanhef:</b><input type="radio" name="gender" onclick="kleur()" value="heer"> Heer</div>
- <div id="kleur2"><input type="radio" name="gender" onclick="kleur()" value="mevrouw"> Mevrouw<br></div>
-
-    <script>
-function kleur(x) {
-    if (x) {
-
-        document.body.style.backgroundColor = "darkgreen";
-
+<style>
+    input {
+        display: block;
     }
-document.body.style.backgroundColor ="darkgreen";
-}
+</style>
+<form action="Opdracht%204%20engels.html">
+    <button type="submit">Engels</button>
+    <button hidden>Nederlands</button>
+</form>
+<form>
+    <b>Salutation:</b><input id="heer" type="radio" name="gender" onclick="kleur()" value="heer"> Heer<br>
+    <input id="mevrouw" type="radio" name="gender" onclick="kleur2()" value="mevrouw"> Mevrouw<br><br>
+    <b>Naam:</b><input type="text"><br><br>
+    <b>Adres:</b><input type="text"><br><br>
+    <b>Woonplaats:</b><input type="text"><br><br>
+    <b>Postcode:</b><input type="text"><br><br>
+    <b>Geboortedatum:</b><input type="text"><br><br>
+    <b>Nationaliteit:</b><input type="text"><br><br>
+    <b>Beroep:</b><input type="text"><br><br>
+</form>
+
+<script>
+    function kleur() {
+        document.body.style.backgroundColor = "darkgreen";
+    }
+    function kleur2() {
+        document.body.style.backgroundColor = "purple";
+    }
 </script>
 </body>
 </html>
