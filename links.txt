@@ -1,0 +1,5 @@
+github
+https://github.com/robinbrokmann/JavaScript-DG2
+
+Trello
+https://trello.com/b/zVceVMhz/javascript-dg2
