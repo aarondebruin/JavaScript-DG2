@@ -19,6 +19,10 @@
 
 </style>
 <body>
+Teller:
+<div style="display: inline-block" id="counter">0</div>
+<button id="reset">Reset</button>
+<br><br>
 <div class="row">
     <div class ="box"></div>
     <div class ="box"></div>
@@ -46,6 +50,84 @@
 
 <script>
 
+    var colors;
+
+    var counter = 0;
+
+    var lastClickedColor = "";
+
+    $(document).ready(function () {
+        var button = $('#reset');
+        button.click(function () {
+            loadArray();
+            lastClickedColor = "";
+            counter = 0;
+            document.getElementById('counter').innerHTML = counter;
+            $('.box').each(function () {
+                   $(this).off('click');
+
+                var color = setColor($(this));
+
+                $(this).click(function () {
+                    console.log("Clicked Color: " + color);
+                    checkClick(color);
+                    lastClickedColor = color;
+                    $(this).css('background-color', '');
+                    $(this).off('click');
+                })
+            });
+        });
+
+        button.trigger("click");
+    });
+
+    function checkClick(color) {
+        console.log("Last clicked color: " + lastClickedColor);
+        if (lastClickedColor === color) {
+            console.log("Match!: " + color);
+            counter++;
+            document.getElementById('counter').innerHTML = counter;
+        }
+    }
+
+
+    function setColor(element) {
+        var color = getColor(Math.floor(Math.random() * 8 + 1));
+        if (colors[color] < 2) {
+            element.css("background-color", color);
+            colors[color]++;
+            return color;
+        } else {
+            return setColor(element);
+        }
+    }
+
+
+    function loadArray() {
+        colors = {red: 0, yellowgreen: 0, orange: 0, aqua: 0, pink: 0, purple: 0,navy: 0, yellow: 0};
+    }
+
+
+    function getColor(randomNumber) {
+        switch (randomNumber) {
+            case 1:
+                return "red";
+            case 2:
+                return "yellowgreen";
+            case 3:
+                return "orange";
+            case 4:
+                return "aqua";
+            case 5:
+                return "pink";
+            case 6:
+                return "purple";
+            case 7:
+                return "navy";
+            case 8:
+                return "yellow";
+        }
+    }
 </script>
 </body>
 </html>
