@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Opdracht 2</title>
+</head>
+<body>
+  <script>
+	$(document).ready(function(){
+		$(".cijfer").last().hide();
+
+		$("#knop").click(function(){
+			$(".cijfer").first().fadeOut(1000, function(){
+				$(".cijfer").last().fadeIn(1000);
+			});
+		});
+	});
+	</script>
+
+	<div id="demo" style="padding; 20px; padding-left: 40px; width: 25%; float: right; background-color: lightblue;">
+		<p class="cijfer">1</p>
+		<p class="cijfer">2</p>
+		<p class="cijfer">3</p>
+		<p class="cijfer">4</p>
+		<p class="cijfer">5</p>
+		<p class="cijfer">6</p>
+	</div>
+
+	<button id="knop">Knop</button>
+
+</body>
+</html>
