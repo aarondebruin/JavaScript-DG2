@@ -13,21 +13,35 @@
 <form>
     <b>Aanhef:</b><input id="sir" type="radio" name="gender" onclick="kleur()" value="Sir"> Sir<br>
     <input id="Madam" type="radio" name="gender" onclick="kleur2()" value="Madam"> Madam<br><br>
-    <b>Name:</b><input type="text"><br><br>
-    <b>Adress:</b><input type="text"><br><br>
-    <b>Residence:</b><input type="text"><br><br>
-    <b>Postcode:</b><input type="text"><br><br>
-    <b>Date of birth:</b><input type="text"><br><br>
-    <b>Nationality:</b><input type="text"><br><br>
-    <b>employment:</b><input type="text"><br><br>
+    <b>Name:</b><input id = "Name"type="text"><br><br>
+    <b>Adress:</b><input id = "Adress" type="text"><br><br>
+    <b>Residence:</b><input id = "Residence" type="text"><br><br>
+    <b>Postcode:</b><input id = "Postcode" type="text"><br><br>
+    <b>Date of birth:</b><input id = "Date of birth" type="text"><br><br>
+    <b>Nationality:</b><input id = "Nationality" type="text"><br><br>
+    <b>employment:</b><input id = "employment" type="text"><br><br>
 </form>
 
 <script>
     function kleur() {
         document.body.style.backgroundColor = "darkgreen";
+        document.getElementById("Name").style.backgroundColor = "lightgreen";
+        document.getElementById("Adress").style.backgroundColor = "lightgreen";
+        document.getElementById("Residence").style.backgroundColor = "lightgreen";
+        document.getElementById("Postcode").style.backgroundColor = "lightgreen";
+        document.getElementById("Date of birth").style.backgroundColor = "lightgreen";
+        document.getElementById("Nationality").style.backgroundColor = "lightgreen";
+        document.getElementById("employment").style.backgroundColor = "lightgreen";
     }
     function kleur2() {
         document.body.style.backgroundColor = "purple";
+        document.getElementById("Name").style.backgroundColor = "lightpink";
+        document.getElementById("Adress").style.backgroundColor = "lightpink";
+        document.getElementById("Residence").style.backgroundColor = "lightpink";
+        document.getElementById("Postcode").style.backgroundColor = "lightpink";
+        document.getElementById("Date of birth").style.backgroundColor = "lightpink";
+        document.getElementById("Nationality").style.backgroundColor = "lightpink";
+        document.getElementById("employment").style.backgroundColor = "lightpink";
     }
 </script>
 </body>
