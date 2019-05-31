@@ -1,0 +1,252 @@
+<html>
+<head>
+    <title>Javascript Eindopdracht 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<button>NL</button>
+<button>ENG</button><br>
+<form style="display: none" name="form">
+    <small id="required">Velden met * zijn verplicht.</small><br><br>
+    <label id="gender-title">Aanhef</label>*:<br>
+    <input onclick="processGender(this)" type="radio" name="gender" value="male"> <label id="gender-male">Heer</label>
+    <input onclick="processGender(this)" type="radio" name="gender" value="female"> <label id="gender-female">Mevrouw</label><br><br>
+
+    <label id="name-title">Naam</label>*:<br>
+    <small id="name-info">Aleen letters</small><br>
+    <input onchange="checkPattern('name', this.value)" id="name-input"><br><br>
+
+    <label id="address-title">Adres</label>*:<br>
+    <small id="address-info">Voorbeelden: Verlengdescholtenskanaal OZ 86, Eerste-groenedijk 15</small><br>
+    <input onchange="checkPattern('address', this.value)" id="adres-input"><br><br>
+
+    <label id="residence-title">Woonplaats</label>*:<br>
+    <input onchange="checkPattern('residence', this.value)" id="woonplaats-input"><br><br>
+
+    <label id="postalcode-title">Postcode</label>*:<br>
+    <small id="postalcode-info">Voorbeeld: 1234 AB</small><br>
+    <input onchange="checkPattern('postalcode', this.value)" id="postcode-input"><br><br>
+
+    <label id="birthdate-title">Geboortedatum</label>*:<br>
+    <small id="birthdate-info">Voorbeelden: 21-05-1998, 01-02-95</small><br>
+    <input onchange="getAge(this.value)" type="text" name="birthdate">
+    <div style="display: none;" id="age"></div><br><br>
+
+    <label id="nationality-title">Nationaliteit</label>*:<br>
+    <small id="nationality-info">Aleen letters</small><br>
+    <input onchange="checkPattern('nationality', this.value)" id="nationality-input"><br><br>
+
+    <label id="work-title">Beroep</label>*:<br>
+    <small id="work-info">Aleen letters</small><br>
+    <input onchange="checkPattern('work', this.value)" id="work-input"><br><br>
+
+    <label id="comment-title">Opmerkingen:</label><br>
+    <textarea rows="5" cols="30"></textarea><br><br>
+</form>
+</body>
+<script>
+    function processGender(e){
+        if(e.value === "male"){
+            document.body.style.background= "green";
+            $('input').css('background-color', 'lime');
+            $('textarea').css('background-color', 'lime');
+        } else if(e.value === "female"){
+            document.body.style.background= "purple";
+            $('input').css('background-color', 'pink');
+            $('textarea').css('background-color', 'pink');
+        }
+    }
+
+    function getAge(value) {
+        if (value === "") {
+            window.alert("De geboortedatum kan niet leeg zijn!");
+            $('#age').text('');
+            return;
+        }
+        var pattern = /^\d{2}-\d{2}-(?:\d{2}){1,2}$/;
+        if (!pattern.test(value)) {
+            window.alert("Deze geboortedatum is niet geldig!");
+            $('#age').text('');
+            return;
+        }
+
+        var DOB = value.split('-');
+        var today = new Date();
+        var birthDate = new Date(DOB[2], DOB[1] - 1, DOB [0]);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age = age - 1;
+        }
+
+        var ageDisplay = $('#age');
+        ageDisplay.text(age);
+        ageDisplay.fadeIn(1000).css("display","inline");
+    }
+
+       function checkPattern(type, value) {
+        if (value === "") {
+            var message = lang === "ENG" ? langArray.empty.eng : langArray.empty.nl;
+            var path = getNestedValue(langArray, type + "." + "title." + lang.toLowerCase());
+            window.alert(message.replace('{0}', path.toLowerCase()));
+            return;
+        }
+        var pattern = patternArray[type];
+        if (!pattern.test(value)) {
+            var message = lang === "ENG" ? langArray.invalid.eng : langArray.invalid.nl;
+            var path = getNestedValue(langArray, type + "." + "title." + lang.toLowerCase());
+            window.alert(message + path.toLowerCase() + ".");
+        }
+    }
+
+    var patternArray = {
+        name: /^[a-zA-Z\s]*$/,
+        address: /^\D*\s\d+\w?$/,
+        residence: /^[\w-]*$/,
+        postalcode: /^\d{4}\s\w{2}$/,
+        nationality: /^[a-zA-Z\s]*$/,
+        work: /^[a-zA-Z\s]*$/
+    };
+
+    var langArray = {
+        gender: {
+            title: {
+                eng: "Gender",
+                nl: "Aanhef"
+            },
+            male: {
+                eng: "Male",
+                nl: "Heer"
+            },
+            female: {
+                eng: "Female",
+                nl: "Mevrouw"
+            }
+        },
+        name: {
+            title: {
+                eng: "Name",
+                nl: "Naam"
+            },
+            info: {
+                eng: "Only letters",
+                nl: "Aleen letters"
+            }
+        },
+        address: {
+            title: {
+                eng: "Address",
+                nl: "Adres"
+            },
+            info: {
+                eng: "Examples: Verlengdescholtenskanaal OZ 86, Eerste-groenedijk 15",
+                nl: "Voorbeelden: Verlengdescholtenskanaal OZ 86, Eerste-groenedijk 15"
+            }
+        },
+        residence: {
+            title: {
+                eng: "Residence",
+                nl: "Woonplaats"
+            }
+        },
+        postalcode: {
+            title: {
+                eng: "Postal Code",
+                nl: "Postcode"
+            },
+            info: {
+                eng: "Example: 1234 AB",
+                nl: "Voorbeeld: 1234 AB"
+            }
+        },
+        birthdate: {
+            title: {
+                eng: "Date of Birth",
+                nl: "Geboortedatum"
+            },
+            info: {
+                eng: "Examples:  21-05-1998, 01-02-95",
+                nl: "Voorbeelden:  21-05-1998, 01-02-95"
+            }
+        },
+        nationality: {
+            title: {
+                eng: "Nationality",
+                nl: "Nationaliteit"
+            },
+            info: {
+                eng: "Only letters",
+                nl: "Aleen letters"
+            }
+        },
+        work: {
+            title: {
+                eng: "Workplace",
+                nl: "Beroep"
+            },
+            info: {
+                eng: "Only letters",
+                nl: "Aleen letters"
+            }
+        },
+        comment: {
+            title: {
+                eng: "Comments:",
+                nl: "Opmerkingen:"
+            }
+        },
+        empty: {
+            eng: "The {0} cannot be empty.",
+            nl: "De {0} kan niet leeg zijn."
+        },
+        required: {
+            eng: "Fields with * are required.",
+            nl: "Velden met * zijn verplicht."
+        },
+
+        example: {
+            eng: "Example:",
+            nl: "Voorbeeld:"
+        },
+        invalid: {
+            eng: "This is a invalid ",
+            nl: "Dit is een ongeldige "
+        }
+    };
+
+    var lang;
+
+    function getNestedValue(obj, key) {
+        return key.split(".").reduce(function(result, key) {
+            return result[key]
+        }, obj);
+    }
+
+    $(document).ready(function () {
+        $('button').click(function () {
+            lang = ($(this).text());
+            $('form').fadeOut(300, function () {
+                updateLanguage();
+            });
+        });
+
+        function updateLanguage() {
+            $('label, small').each(function () {
+                var id = $(this).attr('id');
+                if(id == null){
+                    console.log("Empty ID");
+                    return;
+                }
+                var value = '';
+                id.split("-").forEach(function (e) {
+                    value += e;
+                    value += ".";
+                });
+                value += lang.toLowerCase();
+                $(this).text(getNestedValue(langArray, value))
+            });
+            $('form').fadeIn(300);
+        }
+    });
+</script>
+</html>
