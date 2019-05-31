@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Opdracht 4</title>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="slider-wrapper">
+      <div class="inner-wrapper">
+        <div class="slide">
+    			<img src="../imgs/emmen1.jpg">
+    		</div>
+        <div class="slide">
+          <img src="../imgs/emmen2.jpg">
+        </div>
+        <div class="slide">
+          <img src="../imgs/emmen3.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="button prev"></div>
+    <div class="button next"></div>
+  </div>
+
+<script>
+
+  $(function() {
+
+    var inWrap = $('.inner-wrapper');
+
+    $('.prev').on('click', function() {
+
+      inWrap.animate({left: '0%'}, 300, function(){
+
+        inWrap.css('left', '-100%');
+
+        $('.slide').first().before($('.slide').last());
+      });
+    });
+    $('.next').on('click', function() {
+
+      inWrap.animate({left: '-200%'}, 300, function(){
+
+        inWrap.css('left', '-100%');
+
+        $('.slide').last().after($('.slide').first());
+      });
+    });
+  })
+
+</script>
+
+</body>
+</html>
