@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Opdracht 3</title>
+</head>
+<body>
+
+  <script>
+  	$(document).ready(function(){
+
+  		$("img").mouseenter(function(){
+  			$(this).animate({width: "450px", height: "300px"});
+  		});
+  		$("img").click(function(){
+  			$(this).hide(2000);
+  		});
+
+  		$("img").mouseout(function(){
+  			$(this).animate({width: "300px", height: "200px"});
+  		});
+
+  	});
+  	</script>
+
+  	<div id="container">
+  		<div class="foto">
+  			<img src="imgs\emmen1.jpg" style="width: 300px; height: 200px; float: left">
+  		</div>
+  		<div class="foto">
+  			<img src="imgs\emmen2.jpg" style="width: 300px; height: 200px; float: left">
+  		</div>
+  		<div class="foto">
+  			<img src="imgs\emmen3.jpg" style="width: 300px; height: 200px; float: left">
+  		</div>
+
+</body>
+</html>
